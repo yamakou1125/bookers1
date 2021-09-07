@@ -9,28 +9,27 @@
     </tr>
   </thead>
 
-  <% @books.each do |book| %>
   <tbody>
+    <% @books.each do |book| %>
       <tr>
         <td><%= link_to book.title, book_path(book) %></td>
         <td><%= link_to book.body, book_path(book)%></td>
-        <% end %>
         
         <td><a class="show_19073" href="/books/19073">Show</a></td>
         <td><a class="edit_19073" href="/books/19073/edit">Edit</a></td>
         <td><a data-confirm="Are you sure?" class="destroy_19073" rel="nofollow" data-method="delete" href="/books/19073">Destroy</a></td>
       </tr>
-      
+    <% end %>  
   </tbody>
 </table>
 
 <h2>New book</h2>
 <%= form_with model:@book, local:true do |f| %>
 
-  <h4>タイトル</h4>
+  <h4>Title</h4>
   <%= f.text_field :title %>
 
-  <h4>本文</h4>
+  <h4>Body</h4>
   <%= f.text_area :body %>
 
   <%= f.submit 'Create Book' %>
